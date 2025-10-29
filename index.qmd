@@ -32,7 +32,7 @@ The story of scurvy demonstrates three different causal understandings of the sa
 
 ```{python}
 #| label: dag-1-1747
-#| echo: true
+#| echo: false
 #| fig-cap: "DAG 1: The 1747 Understanding - Lemons prevent Scurvy"
 
 import daft
@@ -41,8 +41,8 @@ import matplotlib.pyplot as plt
 # The 1747 DAG: Simple and direct, but missing the mechanism
 pgm = daft.PGM(dpi=150, alternate_style="outer", aspect=1.2)
 
-# Diagonal placement for visual appeal
-pgm.add_node("lemons", "Lemons", 1, 1.6, aspect=3, scale=1.1,
+# Diagonal placement for visual appeal - shifted down to avoid text overlap
+pgm.add_node("lemons", "Lemons", 1, 0.3, aspect=3, scale=1.1,
              plot_params={
                  'facecolor': 'lightyellow',  # Warm lemon color
                  'edgecolor': 'orange',       # Citrus edge
@@ -50,7 +50,7 @@ pgm.add_node("lemons", "Lemons", 1, 1.6, aspect=3, scale=1.1,
                  'alpha': 0.9,
              })
 
-pgm.add_node("no_scurvy", "No\nScurvy", 3.5, 0.8, aspect=3, scale=1.1,
+pgm.add_node("no_scurvy", "No\nScurvy", 3.5, -0.3, aspect=3, scale=1.1,
              plot_params={
                  'facecolor': 'lightgreen',   # Healthy green
                  'edgecolor': 'darkgreen',    # Strong green border
@@ -64,20 +64,20 @@ pgm.render()
 
 # Layout adjustments for title space
 fig = plt.gcf()
-fig.set_size_inches(6, 3.8)
-plt.subplots_adjust(top=0.72)
+fig.set_size_inches(4.5, 4.0)
+plt.subplots_adjust(top=0.85, bottom=0.25)
 
 # Add narrative title and subtitle
 plt.suptitle("James Lind (1747): Correct but Incomplete",
-             fontsize=13, weight="bold", style="italic", y=0.97)
+             fontsize=13, weight="bold", style="italic", y=0.95)
 plt.title("Knew lemons worked but not why they worked",
-          fontsize=9.5, style="italic", pad=10)
+          fontsize=9.5, style="italic", pad=8)
 
 ```
 
 ```{python}
 #| label: dag-2-misguided
-#| echo: true
+#| echo: false
 #| fig-cap: "DAG 2: The Misguided Belief - Acid kills Bacteria to Prevent Scurvy"
 
 import daft
@@ -86,8 +86,8 @@ import matplotlib.pyplot as plt
 # The Misguided DAG: A chain of incorrect reasoning
 pgm = daft.PGM(dpi=150, alternate_style="outer", aspect=1.2)
 
-# Diagonal node placement (top-left → bottom-right)
-pgm.add_node("acid", "Acid", 0.8, 1.8, aspect=3, scale=1.1,
+# Diagonal node placement - shifted down to avoid text overlap
+pgm.add_node("acid", "Acid", 0.8, 0.5, aspect=3, scale=1.1,
              plot_params={
                  'facecolor': 'mistyrose',    # Warning color
                  'edgecolor': 'darkred',      # Strong red edge
@@ -95,7 +95,7 @@ pgm.add_node("acid", "Acid", 0.8, 1.8, aspect=3, scale=1.1,
                  'alpha': 0.9,
              })
 
-pgm.add_node("bacteria", "Bacteria\nDeath", 2.4, 1.2, aspect=3, scale=1.1,
+pgm.add_node("bacteria", "Bacteria\nDeath", 2.4, 0.1, aspect=3, scale=1.1,
              plot_params={
                  'facecolor': 'lavender',         # Neutral purple
                  'edgecolor': 'darkslateblue',    # Strong border
@@ -103,7 +103,7 @@ pgm.add_node("bacteria", "Bacteria\nDeath", 2.4, 1.2, aspect=3, scale=1.1,
                  'alpha': 0.9,
              })
 
-pgm.add_node("no_scurvy", "No\nScurvy", 4.0, 0.6, aspect=3, scale=1.1,
+pgm.add_node("no_scurvy", "No\nScurvy", 4.0, -0.5, aspect=3, scale=1.1,
              plot_params={
                  'facecolor': 'lightgreen',   # Healthy green
                  'edgecolor': 'darkgreen',    # Strong green border
@@ -118,20 +118,20 @@ pgm.render()
 
 # Layout adjustments
 fig = plt.gcf()
-fig.set_size_inches(6, 3.8)
-plt.subplots_adjust(top=0.72)
+fig.set_size_inches(4.5, 4.0)
+plt.subplots_adjust(top=0.85, bottom=0.25)
 
 # Add narrative title and subtitle (in red to highlight the error)
 plt.suptitle("The Misguided Belief (1800s)",
-             fontsize=13, weight="bold", style="italic", color='darkred', y=0.97)
+             fontsize=13, weight="bold", style="italic", color='darkred', y=0.95)
 plt.title("Acid kills bacteria → WRONG understanding caused scurvy to return",
-          fontsize=9.5, style="italic", color='darkred', pad=10)
+          fontsize=9.5, style="italic", color='darkred', pad=8)
 
 ```
 
 ```{python}
 #| label: dag-3-1928
-#| echo: true
+#| echo: false
 #| fig-cap: "DAG 3: The 1928 Understanding - Vitamin C Prevents Scurvy"
 
 import daft
@@ -140,8 +140,8 @@ import matplotlib.pyplot as plt
 # The 1928 DAG: Complete scientific understanding
 pgm = daft.PGM(dpi=150, alternate_style="outer", aspect=1.2)
 
-# Diagonal placement for consistency
-pgm.add_node("vitamin_c", "Vitamin C", 1, 1.6, aspect=3, scale=1.1,
+# Diagonal placement - shifted down to avoid text overlap
+pgm.add_node("vitamin_c", "Vitamin C", 1, 0.3, aspect=3, scale=1.1,
              plot_params={
                  'facecolor': 'lightblue',    # Scientific blue
                  'edgecolor': 'darkblue',     # Strong blue border
@@ -149,7 +149,7 @@ pgm.add_node("vitamin_c", "Vitamin C", 1, 1.6, aspect=3, scale=1.1,
                  'alpha': 0.9,
              })
 
-pgm.add_node("no_scurvy", "No\nScurvy", 3.5, 0.8, aspect=3, scale=1.1,
+pgm.add_node("no_scurvy", "No\nScurvy", 3.5, -0.3, aspect=3, scale=1.1,
              plot_params={
                  'facecolor': 'lightgreen',   # Healthy green
                  'edgecolor': 'darkgreen',    # Strong green border
@@ -163,13 +163,13 @@ pgm.render()
 
 # Layout adjustments
 fig = plt.gcf()
-fig.set_size_inches(6, 3.8)
-plt.subplots_adjust(top=0.72)
+fig.set_size_inches(4.5, 4.0)
+plt.subplots_adjust(top=0.85, bottom=0.25)
 
 # Add narrative title and subtitle (in blue for scientific truth)
 plt.suptitle("The Complete Understanding (1928)",
-             fontsize=13, weight="bold", style="italic", color='darkblue', y=0.97)
+             fontsize=13, weight="bold", style="italic", color='darkblue', y=0.95)
 plt.title("Vitamin C deficiency causes scurvy → explains all earlier observations",
-          fontsize=9.5, style="italic", color='darkblue', pad=10)
+          fontsize=9.5, style="italic", color='darkblue', pad=8)
 
 ```
